@@ -19,8 +19,8 @@ var schema = new mongoose.Schema({
 })
 
 var schemaPage2 = new mongoose.Schema({
-    month: String,
     data: Number,
+    month: String
 })
 
 var detailsModel = mongoose.model("as",schema);
@@ -46,9 +46,33 @@ app.get('/:number', function(req, res){
 
     var asNumber = req.params;
     console.log(asNumber.number);
-    res.render("pages/detailNumber",{
-        number: asNumber.number
-    });
+
+    page2DetailsModel.find({},{_id:0}, function(err,allData){
+        // {_id:0, "data":1}
+        if(err)
+        {
+            console.log(err);
+        }
+        else
+        {
+            var month = allData.map(function(item) {
+                return item.month;
+              });
+            console.log(month);
+
+            var data = allData.map(function(item) {
+                return item.data;
+              });
+              
+            console.log(JSON.stringify(data));
+
+            res.render("pages/detailNumber",{
+                    // details: allDetails, month: asNumber.month, date: asNumber.date
+                    month:JSON.stringify(month), data:JSON.stringify(data), number: asNumber.number, allData: allData   
+                })
+        }
+     });
+
 
   });
 

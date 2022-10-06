@@ -1,4 +1,3 @@
-<!-- <h2>Detailed view of <%= number %></h2> -->
 
 <!DOCTYPE html>
 <html>
@@ -7,18 +6,26 @@
     <meta charset="utf-8" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js">
         // ** entire Chart.js library **
+        let arr = [];
+        let i =0;
     </script>
     <style>
     </style>
 </head>
 <body>
 
-    <p> Detailed view of <%= number %> </p>  
+    <p1>Detailed view of <%= number %></p1><br>
+    <p1>Y axis data <%= data %></p1><br>
+     <p1>X axis data <%= month %></p1><br>
+     <p1>Detailed view of <%= allData %></p1><br>
+
+
     <canvas id="myChart" style="height:100%;max-height:600px; width:100%;max-width:600px"></canvas> 
     <!-- <canvas id="myChart" width="100" height="100"></canvas> -->
+    
     <script>
-       var xValues = ['Jan','Feb','Mar','Apr','May','Jun','July','Aug','Sept','Oct','Nov','Dec'];
-       var yValues = [7,8,8,9,9,9,10,11,14,14,15,20]; 
+       var xValues = ['Jan','Feb','Mar','Apr'];//,'May','Jun','July','Aug','Sept','Oct','Nov','Dec'];
+    //    var yValues = <%data %>;//[7,8,8,9 ,9,9,10,11,14,14,15,20]; 
    
        const ctx = document.getElementById('myChart').getContext('2d');
        const myChart = new Chart(ctx, {
@@ -26,12 +33,12 @@
            data: {
                labels: xValues,
                datasets: [{
-                   label: '# of AS',
+                   label: 'ROV%',
                    fill: false,
                    lineTension: 0,
                    backgroundcolor: "rgba(0,0,255,1.0)",
                    borderColor:'rgba(0, 0, 255, 0.5)',
-                   data:yValues,     
+                   data:<%=data%>     
                }]
            },
            options: {
@@ -42,7 +49,8 @@
                }
            }
        });
-   </script>    
+   </script> 
+
    </body> 
 </html>
 
