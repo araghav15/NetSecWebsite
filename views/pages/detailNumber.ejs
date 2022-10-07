@@ -9,47 +9,71 @@
         let arr = [];
         let i =0;
     </script>
-    <style>
-    </style>
+    <link rel="stylesheet" href="details.css">
 </head>
 <body>
 
     <p1>Detailed view of <%= number %></p1><br>
-    <p1>Y axis data <%= data %></p1><br>
-     <p1>X axis data <%= month %></p1><br>
-     <p1>Detailed view of <%= allData %></p1><br>
+    <!-- <p1>Y axis data <%= data %></p1><br> -->
+     <!-- <p1>X axis data <%= month %></p1><br> -->
+     <!-- <p1>Detailed view of <%= allData %></p1><br> -->
 
-
-    <canvas id="myChart" style="height:100%;max-height:600px; width:100%;max-width:600px"></canvas> 
-    <!-- <canvas id="myChart" width="100" height="100"></canvas> -->
+     <canvas id="myChart" style="height:100%;max-height:600px; width:100%;max-width:600px"></canvas> 
+     <!-- <canvas id="myChart" width="100" height="100"></canvas> -->
+     
+     <script>
+        var xValues = ['Jan','Feb','Mar','Apr','May','Jun','July','Aug','Sept','Oct','Nov','Dec'];
+     //    var yValues = <%data %>;//[7,8,8,9 ,9,9,10,11,14,14,15,20]; 
     
-    <script>
-       var xValues = ['Jan','Feb','Mar','Apr'];//,'May','Jun','July','Aug','Sept','Oct','Nov','Dec'];
-    //    var yValues = <%data %>;//[7,8,8,9 ,9,9,10,11,14,14,15,20]; 
-   
-       const ctx = document.getElementById('myChart').getContext('2d');
-       const myChart = new Chart(ctx, {
-           type: 'line',
-           data: {
-               labels: xValues,
-               datasets: [{
-                   label: 'ROV%',
-                   fill: false,
-                   lineTension: 0,
-                   backgroundcolor: "rgba(0,0,255,1.0)",
-                   borderColor:'rgba(0, 0, 255, 0.5)',
-                   data:<%=data%>     
-               }]
-           },
-           options: {
-               scales: {
-                   y: {
-                       // beginAtZero: true
-                   }
-               }
-           }
-       });
-   </script> 
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: xValues,
+                datasets: [{
+                    label: 'ROV%',
+                    fill: false,
+                    lineTension: 0,
+                    backgroundcolor: "rgba(0,0,255,1.0)",
+                    borderColor:'rgba(0, 0, 255, 0.5)',
+                    data:<%=data%>     
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        // beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script> 
+
+
+
+
+
+     <% if(allData!=null) { %>
+        <table class="styled-table">
+        <thead>
+           <tr>
+                <th>Month</th>
+                <th>No. of AS reached </th>
+            </tr>
+        </thead>
+        <tbody>
+        <% allData.forEach(function(item){ %>
+        <tr class="active-row">
+            <td><%= item.month%></td>
+            <td><%= item.data %></td>     
+        </tr>
+        <% }) %>
+    </tbody>
+        </table>
+        <% } %>
+
+
+
 
    </body> 
 </html>
