@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-
-<html>
-
-    <head>
-        <link rel="stylesheet" href="index.css">
-      </head>
+<%- include('../partials/header_index'); %>
 
     <body>
+
         <% if(details!=null) { %>
             <table class="styled-table">
             <thead>
@@ -21,7 +16,7 @@
             <% details.forEach(function(item){ %>
             <tr class="active-row">
                 <td><%= item.rank%></td>
-                <td><a href="/<%= item.number %>"><%= item.number %></a></td>
+                <td><a href="/AS:<%= item.number %>"><%= item.number %></a></td>
                 <td><%= item.organization%></td>
                 <td><%= item.country %></td>     
             </tr>
