@@ -25,7 +25,7 @@ var schemaPage2 = new mongoose.Schema({
     month: String
 })
 
-var detailsModel = mongoose.model("tests",ASOverviewSchema);
+var detailsModel = mongoose.model("asindexoverviews",ASOverviewSchema);
 //var page2DetailsModel = mongoose.model("as_details",schemaPage2);
 
 
