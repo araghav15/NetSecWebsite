@@ -9,9 +9,9 @@
                     <th>Number</th>
                     <th>Organization </th>
                     <th>Rank</th>
-                    <th>Total </th>
-                    <th>FIlter </th>
-                    <th>Remove </th>
+                    <!-- <th>Total </th> -->
+                    <!-- <th>FIlter </th> -->
+                    <!-- <th>Remove </th>  -->
                     <th>ROV Percentage </th>
                 </tr>
             </thead>
@@ -21,10 +21,10 @@
                 <td><a href="/AS:<%= item.asn %>"><%= item.asn %></a></td>
                 <td><%= item.org_name%></td>
                 <td><%= item.rank %></td>     
-                <td><%= item.total %></td>     
-                <td><%= item.filter %></td> 
-                <td><%= item.remove %></td>     
-                <td><%= item.ratio %></td>     
+                <!-- <td><%= item.total %></td>      -->
+                <!-- <td><%= item.filter %></td>  -->
+                <!-- <td><%= item.remove %></td>      -->
+                <td><%= String(Number(item.ratio) * 100) %></td>     
             </tr>
             <% }) %>
         </tbody>
