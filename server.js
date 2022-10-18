@@ -91,6 +91,47 @@ app.get("/",function(req,res)
 
 });
 
+app.get("/AS:number",function(req,res)
+{
+
+    //let page = req.query.p ? Number(req.query.p) : 1;
+
+    let allData = []
+    // let entryPerPage = []
+    // let asPerPage = 20
+    db.collection('174')
+    .find({},{_id:0})
+    // .skip(page * asPerPage)
+    // .limit(asPerPage)
+    .forEach(as =>allData.push(as))
+    .then(() => {
+
+        var ratio = allData.map(function(item) {
+                        return item.ratio;  
+                          });
+        const ratioNum = ratio.map(str=>{
+                            return Number(str)
+                        });
+
+                        // console.log(ratioNum);
+        
+        var date = allData.map(function(item) {
+            return item.date;
+            });
+// let dates = [];
+            for(var i = 0; i < date.length; i++){
+                date[i] = new Date(date[i]).getTime()/1000;
+                 // console.log(date[i]);
+
+            }
+    
+            res.render("pages/detailNumber",{ratio: JSON.stringify(ratioNum), date: JSON.stringify(date)});
+        })
+ //   })
+
+
+});
+
 // // app.get('/AS:number', function(req, res){
 
 // //     var asNumber = req.params;
