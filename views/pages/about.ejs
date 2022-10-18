@@ -1,4 +1,45 @@
 <%- include('../partials/header_sub'); %>
-<h1>
-    About Page
+<html>
+<body>
+
+<h1 style="margin:35px">
+    About The Study
 </h1>
+<p style="margin:35px;text-align:justify">
+    The Resource Public Key Infrastructure (RPKI) is an Inter-
+net security protocol that allows routers to validate BGP an-
+nouncements. In recent few years, the publication of ROA
+objects in RPKI, which bind IP prefixes to their legitimate
+origin ASN, has been rapidly increasing; however, RPKI is
+effective only if the routers also verify the incoming BGP
+announcements with ROAs, which is called ROV.
+It has been known to be challenging to measure Route
+Origin Validation (ROV) where networks filter prefixes that
+are invalid in the RPKI validation. Many of the required
+solutions to measure ROV require researchers to control IP
+prefixes, and publish ROA objects, which is a high barrier of
+entry to conduct these experiments and often has a limitation
+on its accuracy and scalability.
+Here, we present a new technique, RoVista that does
+not require any IP prefixes to own and control, nor volunteers
+in ASes that we would like to measure. With RoVista, we
+characterize the ROV policies of more than 25,000 ASes and
+cross-check our findings with other resources. We also find
+abnormal behaviors of ROV even for ASes that have run ROV
+for a long time; these results highlight the need for continuous
+auditing of ROV policies to improve the security of the RPKI
+ecosystem.
+</p>
+
+<h2 style="margin-left:35px">Paper Link</h2>
+<p style="margin-left:35px">TODO: Add paper link</p>
+
+<h2 style="margin-left:35px">Contact
+</h2 >
+<p style="margin-left:35px">tijay[at]vt.edu</p>
+</br></br></br>
+<h2 style="margin-left:35px">Partnership</h2>
+<img src="img/vt_logo.png" alt="vt logo" height="70px" width="150px" style="margin-left:35px">
+</body>
+
+</html>
