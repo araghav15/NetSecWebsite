@@ -94,11 +94,13 @@ app.get("/AS:number",function(req,res)
 {
 
     //let page = req.query.p ? Number(req.query.p) : 1;
+    var asNumber = String(req.params.number).substring(1);
+    //console.log(asNumber)
 
     let allData = []
     // let entryPerPage = []
     // let asPerPage = 20
-    db.collection('174')
+    db.collection(asNumber)
     .find({},{_id:0})
     // .skip(page * asPerPage)
     // .limit(asPerPage)
@@ -129,7 +131,7 @@ app.get("/AS:number",function(req,res)
 
             }
 
-            console.log(merged);
+            //console.log(merged);
 
             
     
