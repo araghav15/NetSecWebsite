@@ -119,12 +119,21 @@ app.get("/AS:number",function(req,res)
             });
 // let dates = [];
             for(var i = 0; i < date.length; i++){
-                date[i] = new Date(date[i]).getTime()/1000;
+                date[i] = new Date(date[i]).getTime();
                  // console.log(date[i]);
 
             }
+            let merged = [];
+            for(var i = 0; i < date.length; i++){
+                 merged.push(new Array(date[i],ratioNum[i]));
+
+            }
+
+            console.log(merged);
+
+            
     
-            res.render("pages/detailNumber",{ratio: JSON.stringify(ratioNum), date: JSON.stringify(date)});
+            res.render("pages/detailNumber",{ratio: JSON.stringify(ratioNum), date: JSON.stringify(date), merged:JSON.stringify(merged)});
         })
  //   })
 

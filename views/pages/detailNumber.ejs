@@ -16,9 +16,7 @@
 <figure class="highcharts-figure">
     <div id="container"></div>
     <p class="highcharts-description">
-        Basic line chart showing trends in a dataset. This chart includes the
-        <code>series-label</code> module, which adds a label to each line for
-        enhanced readability.
+        Line chart showing historical ROV percentage of the selected AS.
     </p>
 </figure>
 
@@ -46,7 +44,7 @@
                 year: "%Y"},
             title: {"text": "Date"},
             // type: "datetime",
-            categories: <%=date%>
+            //categories: <%=date%>
 
         },
 
@@ -67,7 +65,7 @@
 
         series: [{
             name: '',
-            data: <%=ratio%>
+            data: <%=merged%>
         }]
 
         // responsive: {
