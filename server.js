@@ -54,12 +54,11 @@ app.get("/",function(req,res)
     let entryPerPage = []
     let asPerPage = 20
     db.collection('asindexoverviews')
-    .find()
+    .find( )
     // .skip(page * asPerPage)
     // .limit(asPerPage)
     .forEach(as =>entry.push(as))
     .then(() => {
-        
         const numOfResults = entry.length;
         const numberOfPages = Math.ceil(numOfResults / asPerPage);
         let page = req.query.page ? Number(req.query.page) : 1;
