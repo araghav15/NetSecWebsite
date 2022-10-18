@@ -72,7 +72,7 @@ app.get("/",function(req,res)
 
         db.collection('asindexoverviews')
         .find()
-        .skip(startingLimit * asPerPage)
+        .skip(startingLimit * (page-1))
         .limit(asPerPage)
         .forEach(as =>entryPerPage.push(as))
         .then(() => {

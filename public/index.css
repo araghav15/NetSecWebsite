@@ -85,3 +85,6 @@ a{
 a:link,a:visited,a:hover,a:active{
     text-decoration: none;
 }
+.page_index {
+    text-align: center;
+}
